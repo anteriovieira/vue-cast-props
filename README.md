@@ -1,6 +1,6 @@
-# vue-cast-props [![Build Status](https://img.shields.io/circleci/project/anteriovieira/vue-cast-props/master.svg)](https://circleci.com/gh/anteriovieira/vue-cast-props) [![npm package](https://img.shields.io/npm/v/vue-cast-props.svg)](https://www.npmjs.com/package/vue-cast-props) [![coverage](https://img.shields.io/codecov/c/github/anteriovieira/vue-cast-props.svg)](https://codecov.io/github/anteriovieira/vue-cast-props) [![Greenkeeper badge](https://badges.greenkeeper.io/anteriovieira/vue-cast-props.svg)](https://greenkeeper.io/)
+# vue-cast-props [![Build Status](https://img.shields.io/circleci/project/anteriovieira/vue-cast-props/master.svg)](https://circleci.com/gh/anteriovieira/vue-cast-props) [![npm package](https://img.shields.io/npm/v/vue-cast-props.svg)](https://www.npmjs.com/package/vue-cast-props) [![coverage](https://img.shields.io/codecov/c/github/anteriovieira/vue-cast-props.svg)](https://codecov.io/github/anteriovieira/vue-cast-props)
 
-> vue-cast-props simplifies type-checking and converts between types in a more sensible.
+> vue-cast-props
 
 ## Installation
 

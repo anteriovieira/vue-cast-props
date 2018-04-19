@@ -14,8 +14,7 @@
     "lint": "eslint --color --ext=js,html src test",
     "unit": "jest",
     "dev": "npm run unit -- --watchAll",
-    "test": "npm run lint && npm run unit",
-    "prepublishOnly": "rollit"
+    "test": "npm run lint && npm run unit"
   },
   "files": [
     "src",
