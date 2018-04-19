@@ -27,6 +27,24 @@ export default {
 }
 ```
 
+Use
+
+```js
+export default {
+  props: {
+    active: {
+      cast: 'string'
+    }
+  }
+}
+```
+
+```html
+<template>
+  <div>Active {{ $c.active }}</div>
+</template>
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
