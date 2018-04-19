@@ -1,0 +1,70 @@
+{
+  "name": "vue-cast-props",
+  "version": "0.0.1",
+  "description": "Cast props to vue components",
+  "main": "dist/vue-cast-props.cjs.js",
+  "module": "dist/vue-cast-props.es.js",
+  "unpkg": "dist/vue-cast-props.js",
+  "browser": "dist/vue-cast-props.es.js",
+  "author": {
+    "name": "Antério vieira",
+    "email": "anteriovieira@gmail.com"
+  },
+  "scripts": {
+    "lint": "eslint --color --ext=js,html src test",
+    "unit": "jest",
+    "dev": "npm run unit -- --watchAll",
+    "test": "npm run lint && npm run unit",
+    "prepublishOnly": "rollit"
+  },
+  "files": [
+    "src",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "vue",
+    "cast",
+    "props",
+    "sanitize",
+    "transform"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "upcast": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.14",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
+    "codecov": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-vue": "^2.0.2",
+    "eslint-plugin-vue": "^4.5.0",
+    "jest": "^22.4.3",
+    "vue": "^2.5.16",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anteriovieira/vue-cast-props.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anteriovieira/vue-cast-props/issues"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "<rootDir>/src/*.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "homepage": "https://github.com/anteriovieira/vue-cast-props#readme"
+}
