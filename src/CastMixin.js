@@ -1,10 +1,5 @@
 import Upcast from 'upcast'
 
-function getType (fn) {
-  const match = fn && fn.toString().match(/^\s*function (\w+)/)
-  return match ? match[1] : ''
-}
-
 export default {
   beforeCreate () {
     const { props } = this.$options
