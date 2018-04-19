@@ -1,6 +1,6 @@
 {
   "name": "vue-cast-props",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cast props to vue components",
   "main": "src/index.js",
   "module": "dist/vue-cast-props.es.js",
