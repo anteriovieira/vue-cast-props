@@ -5,8 +5,7 @@ const CastProps = {
   mixins: [CastMixin],
   props: {
     value: {
-      type: Array,
-      cast: Array
+      cast: 'array'
     },
     other: String
   },

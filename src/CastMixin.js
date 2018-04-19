@@ -1,5 +1,10 @@
 import Upcast from 'upcast'
 
+function getType (fn) {
+  const match = fn && fn.toString().match(/^\s*function (\w+)/)
+  return match ? match[1] : ''
+}
+
 export default {
   beforeCreate () {
     const { props } = this.$options
@@ -16,9 +21,7 @@ export default {
   computed: {
     $c () {
       return this._$casting.reduce((c, [name, cast]) => {
-        const type = typeof cast === 'string' ? cast : Upcast.type(Array)
-
-        c[name] = Upcast.to(this.$props[name], type)
+        c[name] = Upcast.to(this.$props[name], cast)
         return c
       }, {})
     }

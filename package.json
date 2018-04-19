@@ -2,7 +2,7 @@
   "name": "vue-cast-props",
   "version": "0.0.1",
   "description": "Cast props to vue components",
-  "main": "dist/vue-cast-props.cjs.js",
+  "main": "src/index.js",
   "module": "dist/vue-cast-props.es.js",
   "unpkg": "dist/vue-cast-props.js",
   "browser": "dist/vue-cast-props.es.js",
