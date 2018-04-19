@@ -4,6 +4,9 @@
 
 ## Installation
 
+The `cast` property on your component provides a convenient way of converting props to common data types. The `cast` value property should be an string. The supported `cast` types are: `array`, `boolean`, `function`, `number`, `object` and `string`.
+
+
 ```sh
 yarn add vue-cast-props
 # or
@@ -27,7 +30,7 @@ export default {
 }
 ```
 
-Use
+## Use
 
 ```js
 export default {
