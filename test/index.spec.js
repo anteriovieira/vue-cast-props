@@ -16,7 +16,10 @@ const CastProps = {
     date: {
       cast: 'date'
     },
-    other: String
+    other: String,
+    age: {
+      cast: Number
+    }
   },
 
   render (h) {
@@ -36,6 +39,16 @@ describe('VueCastProps', () => {
     expect(wrapper.props().value).toBe('fo')
     expect(wrapper.vm.$c).toBeDefined()
     expect(wrapper.vm.$c.value).toEqual(['f', 'o'])
+  })
+
+  test('should cast age from type', () => {
+    const wrapper = mount(CastProps, {
+      propsData: {
+        age: '29'
+      }
+    })
+
+    expect(wrapper.vm.$c.age).toBe(29)
   })
 
   test('should add custom cast', () => {

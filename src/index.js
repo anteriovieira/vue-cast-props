@@ -13,9 +13,10 @@ function plugin (Vue, options) {
 
   // Add custom casts
   Object.keys(casts).forEach(name => {
-    Upcast.cast[name] = casts[name]
+    Upcast.add(name, casts[name])
   })
 
+  // Add api
   Vue.prototype.$cast = Upcast
 
   Vue.mixin(CastMixin)

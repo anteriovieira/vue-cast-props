@@ -4,7 +4,7 @@
 
 ## Installation
 
-The `cast` property on your component provides a convenient way of converting props to common data types. The `cast` value should be an string. The supported `cast` types are: `array`, `boolean`, `function`, `number`, `object` and `string`.
+The `cast` property on your component provides a convenient way of converting props to common data types. The `cast` value should be an string. The supported `cast` types are: `array`, `boolean`, `function`, `number`, `date`, `object` and `string`.
 
 
 ```sh
@@ -44,10 +44,43 @@ export default {
 
 Now the `active` prop will always be cast to a string when you access it with `$c.active`.
 
+
 ```html
 <template>
   <div>Active {{ $c.active }}</div>
 </template>
+```
+
+## Custom casts
+
+You can provide custom casts.
+
+```js
+// main.js
+import CastPropsMixin from 'vue-cast-props'
+
+Vue.use(CastPropsMixin, {
+  casts: {
+    username: v => v.trim()
+  }
+})
+```
+
+```js
+// profile.vue
+export default {
+  props: {
+    name: {
+      cast: 'username'
+    }
+  }
+}
+```
+
+```html
+<div>
+  Username: {{ $c.name }}
+</div>
 ```
 
 ## License

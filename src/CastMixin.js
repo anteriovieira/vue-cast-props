@@ -1,4 +1,5 @@
 import Upcast from 'upcast'
+import { getType } from './Util'
 
 export default {
   beforeCreate () {
@@ -16,7 +17,9 @@ export default {
   computed: {
     $c () {
       return this._$casting.reduce((c, [name, cast]) => {
-        c[name] = Upcast.to(this.$props[name], cast)
+        const type = Upcast.is(cast, 'string') ? cast : getType(cast)
+
+        c[name] = Upcast.to(this.$props[name], type.toLowerCase())
         return c
       }, {})
     }
