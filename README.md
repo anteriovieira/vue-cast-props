@@ -97,7 +97,7 @@ export default {
 
 Get the type of an object.
 
-
+Example:
 ```js
 vm.$cast.type([]); // 'array'
 vm.$cast.type(true); // 'boolean'
@@ -116,6 +116,7 @@ vm.$cast.type(undefined); // 'undefined'
 
 Check whether an object is of a given type. This accepts two arguments: 
 
+Example:
 ```js
 vm.$cast.is('foo', 'string'); // true
 vm.$cast.is(123, 'string'); // false
