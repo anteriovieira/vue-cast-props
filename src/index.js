@@ -1,7 +1,21 @@
 import CastMixin from './CastMixin'
 import Upcast from 'upcast'
+import { merge } from './Util'
 
-function plugin (Vue) {
+const defaultOptions = {
+  casts: {
+    'date': v => new Date(v)
+  }
+}
+
+function plugin (Vue, options) {
+  const casts = merge(defaultOptions.casts, options.casts)
+
+  // Add custom casts
+  Object.keys(casts).forEach(name => {
+    Upcast.cast[name] = casts[name]
+  })
+
   Vue.prototype.$cast = Upcast
 
   Vue.mixin(CastMixin)
