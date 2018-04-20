@@ -26,32 +26,13 @@ yarn add vue-cast-props
 npm install vue-cast-props
 ```
 
-Use the mixin globally or locally:
-
-- globally (recommended)
-
-Exposes the `$cast` instance.
+## Usage
 
 ```js
-import CastPropsMixin from 'vue-cast-props'
+import VueCastProps from 'vue-cast-props'
 
-Vue.use(CastPropsMixin, /* options */)
+Vue.use(VueCastProps, /* options */)
 ```
-
-- locally
-
-Does not expose the `$cast` instance.
-
-```js
-import {CastMixin} from 'vue-cast-props'
-
-export default {
-  // other options
-  mixins: [CastMixin],
-}
-```
-
-## Use
 
 ```js
 export default {
