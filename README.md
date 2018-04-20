@@ -5,19 +5,6 @@
 
 The `cast` property on your component provides a convenient way of converting props to common data types. 
 
-The `cast` value should be an string or type. The supported:
-
-| As string | As type | Description |
-|-----------|---------|-------------|
-| array | `Array` | Cast to Array |
-| boolean | `Boolean` | Cast to Boolean |
-| function | `Function` | Cast to Function |
-| number | `Number` | Cast to Number |
-| date | `Date` | Return Date instance |
-| object | `Object` | Cast to Object |
-| string | `String` | Cast to String |
-
-
 ## Installation
 
 ```sh
@@ -52,6 +39,30 @@ Now the `active` prop will always be cast to a string when you access it with `$
   <div>Active {{ $c.active }}</div>
 </template>
 ```
+
+## Supported types
+
+The `cast` value should be an string or type.
+
+```js
+export default {
+  props: {
+    age: {
+      cast: Number
+    }
+  }
+}
+```
+
+| As string | As type | Description |
+|-----------|---------|-------------|
+| array | `Array` | Cast to Array |
+| boolean | `Boolean` | Cast to Boolean |
+| function | `Function` | Cast to Function |
+| number | `Number` | Cast to Number |
+| date | `Date` | Return Date instance |
+| object | `Object` | Cast to Object |
+| string | `String` | Cast to String |
 
 ## Custom casts
 
