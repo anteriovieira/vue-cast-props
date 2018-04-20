@@ -2,10 +2,23 @@
 
 > vue-cast-props
 
+
+The `cast` property on your component provides a convenient way of converting props to common data types. 
+
+The `cast` value should be an string. The supported:
+
+| As string | As type | Description |
+|-----------|---------|-------------|
+| array | `Array` | Cast to Array |
+| boolean | `Boolean` | Cast to Boolean |
+| function | `Function` | Cast to Function |
+| number | `Number` | Cast to Number |
+| date | `Date` | Return Date instance |
+| object | `Object` | Cast to Object |
+| string | `String` | Cast to String |
+
+
 ## Installation
-
-The `cast` property on your component provides a convenient way of converting props to common data types. The `cast` value should be an string. The supported `cast` types are: `array`, `boolean`, `function`, `number`, `date`, `object` and `string`.
-
 
 ```sh
 yarn add vue-cast-props
@@ -15,13 +28,21 @@ npm install vue-cast-props
 
 Use the mixin globally or locally:
 
+- globally (recommended)
+
+Exposes the `$cast` instance.
+
 ```js
-// globally
 import CastPropsMixin from 'vue-cast-props'
 
-Vue.use(CastPropsMixin)
+Vue.use(CastPropsMixin, /* options */)
+```
 
-// locally
+- locally
+
+Does not expose the `$cast` instance.
+
+```js
 import {CastMixin} from 'vue-cast-props'
 
 export default {
