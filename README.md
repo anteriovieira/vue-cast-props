@@ -42,6 +42,8 @@ export default {
 }
 ```
 
+Now the `active` prop will always be cast to a string when you access it with `$c.active`.
+
 ```html
 <template>
   <div>Active {{ $c.active }}</div>
