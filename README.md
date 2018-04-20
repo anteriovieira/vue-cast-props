@@ -5,7 +5,7 @@
 
 The `cast` property on your component provides a convenient way of converting props to common data types. 
 
-The `cast` value should be an string. The supported:
+The `cast` value should be an string or type. The supported:
 
 | As string | As type | Description |
 |-----------|---------|-------------|
