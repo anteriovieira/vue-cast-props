@@ -136,6 +136,7 @@ Convert an object to a specific type. This accepts two arguments.
 
 The way types are converted aims to be sensible and allow easy switching back-and-forth of common types. For example, switching between strings and arrays is quite fluid:
 
+Example:
 ```js
 vm.$cast.to('foo', 'array'); // ['f', 'o', 'o']
 vm.$cast.to(['f', 'o', 'o'], 'string'); // 'foo'
@@ -147,18 +148,21 @@ You can use [type aliases](#type-aliases) with this function. The examples below
 
 Converting to an array from a boolean, function, number or object simply wraps the value in an array:
 
+Example:
 ```js
 vm.$cast.to(123, 'array'); // [123]
 ```
 
 Strings are handled differently, an array is returned with each character in the string as an item:
 
+Example:
 ```js
 vm.$cast.to('foo', 'array'); // ['f', 'o', 'o']
 ```
 
 Null and undefined are converted to an empty array:
 
+Example:
 ```js
 vm.$cast.to(null, 'array'); // []
 ```
@@ -167,6 +171,7 @@ vm.$cast.to(null, 'array'); // []
 
 Boolean conversion simply converts to `true` or `false` based on whether the value is truthy or not. The only case where this doesn't follow JavaScript's standard behaviour is with empty arrays which are converted to `false`:
 
+Example:
 ```js
 vm.$cast.to([1, 2, 3], 'boolean') // true
 vm.$cast.to([], 'boolean') // false
@@ -176,6 +181,7 @@ vm.$cast.to([], 'boolean') // false
 
 When converting to a function, the original value is simply wrapped in a new function. This function returns the original value:
 
+Example:
 ```js
 vm.$cast.to('foo', 'function'); // function () { return 'foo'; }
 ```
@@ -184,6 +190,7 @@ vm.$cast.to('foo', 'function'); // function () { return 'foo'; }
 
 As expected, converting to null will always return `null`:
 
+Example:
 ```js
 vm.$cast.to('foo', 'null'); // null
 ```
@@ -192,12 +199,14 @@ vm.$cast.to('foo', 'null'); // null
 
 Converting to a number from a boolean, function, null or object simply calls `Number` with the original value as an argument, returning the expected value:
 
+Example:
 ```js
 vm.$cast.to('true', 'number'); // 1
 ```
 
 Arrays and strings are handled differently, an array is joined to create a string, then evaluated with `parseInt`; strings are simply evaluated with `parseInt`:
 
+Example:
 ```js
 vm.$cast.to([1, 2, 3], 'number'); // 123
 vm.$cast.to('123', 'number'); // 123
@@ -206,6 +215,7 @@ vm.$cast.to('foo', 'number'); // 0
 
 Undefined is converted to `0` rather than `NaN`:
 
+Example:
 ```js
 vm.$cast.to(undefined, 'number'); // 0
 ```
@@ -214,6 +224,7 @@ vm.$cast.to(undefined, 'number'); // 0
 
 Converting to an object simply calls `Object` with the value as a first argument. The following are equivalent:
 
+Example:
 ```js
 vm.$cast.to('foo', 'object');
 Object('foo');
@@ -223,6 +234,7 @@ Object('foo');
 
 Converting to a string from a boolean, function, number or object simply returns the value added to an empty string, using JavaScript's default type conversion:
 
+Example:
 ```js
 vm.$cast.to(true, 'string'); // 'true'
 vm.$cast.to(123, 'string'); // '123'
@@ -230,12 +242,14 @@ vm.$cast.to(123, 'string'); // '123'
 
 Arrays are handled differently, they are joined with an empty string:
 
+Example:
 ```js
 vm.$cast.to(['f', 'o', 'o'], 'string'); // 'foo'
 ```
 
 Null and undefined are converted to an empty string rather than `'null'` and `'undefined'`:
 
+Example:
 ```js
 vm.$cast.to(null, 'string'); // ''
 ```
@@ -244,6 +258,7 @@ vm.$cast.to(null, 'string'); // ''
 
 As expected, converting to undefined will always return `undefined`:
 
+Example:
 ```js
 vm.$cast.to('foo', 'undefined'); // undefined
 ```
