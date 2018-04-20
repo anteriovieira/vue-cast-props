@@ -87,14 +87,16 @@ export default {
 
 `vue-cast-props` exposes the [upcast](https://github.com/OmgImAlexis/upcast#usage) api to the vue instance, so you can use your resources internally:
 
-Methods:
-- type: get the type of an object;
-- is: check whether an object is of a given type;
-- to: convert an object to a specific type;
+- [`type`](#type)
+- [`is`](#is)
+- [`to`](#to)
 
 ### type
 
-Get the type of an object. This accepts a single argument: val: (mixed) The object to get the type of.
+- val: `mixed` The object to get the type of.
+
+Get the type of an object.
+
 
 ```js
 vm.$cast.type([]); // 'array'
@@ -109,7 +111,10 @@ vm.$cast.type(undefined); // 'undefined'
 
 ### is
 
-Check whether an object is of a given type. This accepts two arguments: val: (mixed) The object to check the type of. type: (string) The type to check for. One of array, boolean, function, null, number, object, string or undefined.
+- val: `mixed` The object to check the type of.
+- type: `string` The type to check for.
+
+Check whether an object is of a given type. This accepts two arguments: 
 
 ```js
 vm.$cast.is('foo', 'string'); // true
@@ -124,10 +129,10 @@ vm.$cast.is(null, 'object'); // false
 
 ### to
 
-Convert an object to a specific type. This accepts two arguments:
+- val: `mixed` The object to convert.
+- type: `string` The type to convert to
 
-**val:** *(mixed)* The object to convert.
-**type:** *(string)* The type to convert to.
+Convert an object to a specific type. This accepts two arguments.
 
 The way types are converted aims to be sensible and allow easy switching back-and-forth of common types. For example, switching between strings and arrays is quite fluid:
 
