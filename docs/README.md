@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /hero.png
+heroImage: https://raw.githubusercontent.com/anteriovieira/vue-cast-props/master/docs/media/vue-cast-props.png
 actionText: Get Started →
 actionLink: /guide/
 ---
