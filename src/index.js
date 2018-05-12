@@ -8,7 +8,7 @@ const defaultOptions = {
   }
 }
 
-function plugin (Vue, options) {
+function plugin (Vue, options = {}) {
   const casts = merge(defaultOptions.casts, options.casts)
 
   // Add custom casts
