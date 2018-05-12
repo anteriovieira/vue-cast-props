@@ -1,5 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils'
 import VueCastProps, { CastMixin } from '../src'
+import ProfileStub from './stubs/Profile'
 
 const CastProps = {
   mixins: [CastMixin],
@@ -28,6 +29,20 @@ const CastProps = {
 }
 
 describe('VueCastProps', () => {
+  test('should install if using the script tag', () => {
+    const localVue = createLocalVue()
+    window.Vue = localVue
+
+    expect(window.Vue).toBe(localVue)
+
+    window.Vue.use(window.VueCastProps, {
+      dsn: 'http://abc@example.com:80/2',
+      disableReport: true
+    })
+
+    expect(window.Vue._installedPlugins[0]).toBe(VueCastProps)
+  })
+
   test('adds values to $c cast', () => {
     const wrapper = mount(CastProps, {
       propsData: {
@@ -76,5 +91,19 @@ describe('VueCastProps', () => {
     expect(wrapper.vm.$c.name).toEqual('FOBAR')
     expect(wrapper.vm.$c.username).toEqual('fobar')
     expect(wrapper.vm.$c.date).toEqual(new Date('1988-11-05'))
+  })
+
+  test('should use default casts', () => {
+    const localVue = createLocalVue()
+    localVue.use(VueCastProps)
+
+    const wrapper = mount(ProfileStub, {
+      propsData: {
+        age: 28
+      },
+      localVue
+    })
+
+    expect(wrapper.vm.$c.age).toEqual(28)
   })
 })

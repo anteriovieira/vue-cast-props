@@ -24,7 +24,11 @@ function plugin (Vue, options = {}) {
 
 // Install by default if using the script tag
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin)
+  Object.defineProperty(window, 'VueCastProps', {
+    get () {
+      return plugin
+    }
+  })
 }
 
 export default plugin

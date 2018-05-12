@@ -63,7 +63,10 @@
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ]
   },
   "homepage": "https://github.com/anteriovieira/vue-cast-props#readme"
 }
