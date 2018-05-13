@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://raw.githubusercontent.com/anteriovieira/vue-cast-props/master/docs/media/vue-cast-props.png
+heroImage: https://raw.githubusercontent.com/anteriovieira/vue-cast-props/master/docs/media/vue-cast-props-logo.png
 actionText: Get Started →
 actionLink: /guide/
 ---
@@ -23,12 +23,19 @@ import VueCastProps from 'vue-cast-props'
 Vue.use(VueCastProps, /* options */)
 ```
 
-```js
+```vue
+<template>
+  <span>{{ $c.value.split(',) }}</span>
+</template>
+
+<script>
 export default {
   props: {
-    active: {
-      cast: 'string'
+    values: {
+      type: [Array, Number, String],
+      cast: Array
     }
   }
 }
+</script>
 ```
