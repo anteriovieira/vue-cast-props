@@ -1,5 +1,3 @@
-# vue-cast-props 
-
 <p align="center"><img width="128px" height="112px" src="https://raw.githubusercontent.com/anteriovieira/vue-cast-props/master/docs/media/vue-cast-props-logo.png" alt="VueCastProps"></p>
 
 <h1 align="center">VueCastProps </h1>
