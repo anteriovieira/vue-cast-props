@@ -1,108 +1,8 @@
-# vue-cast-props 
+---
+sidebar: auto
+---
 
-<p align="center"><img width="128px" height="112px" src="https://raw.githubusercontent.com/anteriovieira/vue-cast-props/master/docs/media/vue-cast-props-logo.png" alt="VueCastProps"></p>
-
-<h1 align="center">VueCastProps </h1>
-
-<p align="center">
-<a href="https://circleci.com/gh/anteriovieira/vue-cast-props"><img src="https://img.shields.io/circleci/project/anteriovieira/vue-cast-props/master.svg" alt="Build Status"></a> <a href="https://www.npmjs.com/package/vue-cast-props"><img src="https://img.shields.io/npm/v/vue-cast-props.svg" alt="npm package"></a> <a href="https://codecov.io/github/anteriovieira/vue-cast-props"><img src="https://img.shields.io/codecov/c/github/anteriovieira/vue-cast-props.svg" alt="coverage"></a>
-</p>
-
-
-The `cast` property on your component provides a convenient way of converting props to common data types. 
-
-## Installation
-
-```sh
-yarn add vue-cast-props
-# or
-npm install vue-cast-props
-```
-
-## Usage
-
-```js
-import VueCastProps from 'vue-cast-props'
-
-Vue.use(VueCastProps, /* options */)
-```
-
-```js
-export default {
-  props: {
-    active: {
-      cast: 'string'
-    }
-  }
-}
-```
-
-Now the `active` prop will always be cast to a string when you access it with `$c.active`.
-
-
-```html
-<template>
-  <div>Active {{ $c.active }}</div>
-</template>
-```
-
-## Supported types
-
-The `cast` value should be an string or type.
-
-```js
-export default {
-  props: {
-    age: {
-      cast: Number
-    }
-  }
-}
-```
-
-| As string | As type | Description |
-|-----------|---------|-------------|
-| array | `Array` | Cast to Array |
-| boolean | `Boolean` | Cast to Boolean |
-| function | `Function` | Cast to Function |
-| number | `Number` | Cast to Number |
-| date | `Date` | Return Date instance |
-| object | `Object` | Cast to Object |
-| string | `String` | Cast to String |
-
-## Custom casts
-
-You can provide custom casts.
-
-```js
-// main.js
-import CastPropsMixin from 'vue-cast-props'
-
-Vue.use(CastPropsMixin, {
-  casts: {
-    username: v => v.trim()
-  }
-})
-```
-
-```js
-// profile.vue
-export default {
-  props: {
-    name: {
-      cast: 'username'
-    }
-  }
-}
-```
-
-```html
-<div>
-  Username: {{ $c.name }}
-</div>
-```
-
-## API
+# API 
 
 `vue-cast-props` exposes the [upcast](https://github.com/OmgImAlexis/upcast#usage) api to the vue instance, so you can use your resources internally:
 
@@ -110,7 +10,7 @@ export default {
 - [`is`](#is)
 - [`to`](#to)
 
-### type
+## type
 
 - val: `mixed` The object to get the type of.
 
@@ -128,7 +28,7 @@ vm.$cast.type('foo'); // 'string'
 vm.$cast.type(undefined); // 'undefined'
 ```
 
-### is
+## is
 
 - val: `mixed` The object to check the type of.
 - type: `string` The type to check for.
@@ -147,7 +47,7 @@ vm.$cast.is(null, 'null'); // true
 vm.$cast.is(null, 'object'); // false
 ```
 
-### to
+## to
 
 - val: `mixed` The object to convert.
 - type: `string` The type to convert to
@@ -164,7 +64,7 @@ vm.$cast.to(['f', 'o', 'o'], 'string'); // 'foo'
 
 You can use [type aliases](#type-aliases) with this function. The examples below illustrate the way types are converted.
 
-#### Converting to an array
+### Converting to an array
 
 Converting to an array from a boolean, function, number or object simply wraps the value in an array:
 
@@ -187,7 +87,7 @@ Example:
 vm.$cast.to(null, 'array'); // []
 ```
 
-#### Converting to a boolean
+### Converting to a boolean
 
 Boolean conversion simply converts to `true` or `false` based on whether the value is truthy or not. The only case where this doesn't follow JavaScript's standard behaviour is with empty arrays which are converted to `false`:
 
@@ -197,7 +97,7 @@ vm.$cast.to([1, 2, 3], 'boolean') // true
 vm.$cast.to([], 'boolean') // false
 ```
 
-#### Converting to a function
+### Converting to a function
 
 When converting to a function, the original value is simply wrapped in a new function. This function returns the original value:
 
@@ -206,7 +106,7 @@ Example:
 vm.$cast.to('foo', 'function'); // function () { return 'foo'; }
 ```
 
-#### Converting to null
+### Converting to null
 
 As expected, converting to null will always return `null`:
 
@@ -215,7 +115,7 @@ Example:
 vm.$cast.to('foo', 'null'); // null
 ```
 
-#### Converting to a number
+### Converting to a number
 
 Converting to a number from a boolean, function, null or object simply calls `Number` with the original value as an argument, returning the expected value:
 
@@ -240,7 +140,7 @@ Example:
 vm.$cast.to(undefined, 'number'); // 0
 ```
 
-#### Converting to an object
+### Converting to an object
 
 Converting to an object simply calls `Object` with the value as a first argument. The following are equivalent:
 
@@ -250,7 +150,7 @@ vm.$cast.to('foo', 'object');
 Object('foo');
 ```
 
-#### Converting to a string
+### Converting to a string
 
 Converting to a string from a boolean, function, number or object simply returns the value added to an empty string, using JavaScript's default type conversion:
 
@@ -274,7 +174,7 @@ Example:
 vm.$cast.to(null, 'string'); // ''
 ```
 
-#### Converting to undefined
+### Converting to undefined
 
 As expected, converting to undefined will always return `undefined`:
 
@@ -282,9 +182,3 @@ Example:
 ```js
 vm.$cast.to('foo', 'undefined'); // undefined
 ```
-
-[See the full documentation here...](https://github.com/OmgImAlexis/upcast#usage)
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)

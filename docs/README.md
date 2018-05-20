@@ -3,6 +3,13 @@ home: true
 heroImage: https://raw.githubusercontent.com/anteriovieira/vue-cast-props/master/docs/media/vue-cast-props-logo.png
 actionText: Get Started →
 actionLink: /guide/
+footer: MIT Licensed | Copyright © 2018-present Antério
+description: Cast props to Vue components
+meta:
+  - name: og:title
+    content: VueCastProps
+  - name: og:description
+    content: Cast props to Vue components
 ---
 
 # Quick Setup

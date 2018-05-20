@@ -2,10 +2,14 @@ const sidebars = {
   guide: [
     '',
     'getting-started',
+    'custom-cast'
+  ],
+  api: [
+    ''
   ]
 }
 
-function mapSidebar(title) {
+function genSidebarConfig(title) {
   return [
     {
       title,
@@ -17,7 +21,7 @@ function mapSidebar(title) {
 
 module.exports = {
   title: 'VueCastProps',
-  description: '"Cast props to vue components',
+  description: 'Cast props to vue components',
   serviceWorker: true,
   base: '/vue-cast-props/',
   themeConfig: {
@@ -25,17 +29,19 @@ module.exports = {
     docsRepo: 'anteriovieira/vue-cast-props',
     docsDir: 'docs',
     editLinks: true,
+    nav: [
+      { text: 'Guide', link: '/guide/' },
+      { text: 'API', link: '/api/' }
+    ],
+    sidebar: {
+      '/guide/': genSidebarConfig('Guide'),
+      '/api/': genSidebarConfig('API')
+    },
     locales: {
       '/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
-        nav: [
-          { text: 'Guide', link: '/guide/' },
-        ],
-        sidebar: {
-          '/guide/': mapSidebar('Guide'),
-        }
       }
     }
   }
